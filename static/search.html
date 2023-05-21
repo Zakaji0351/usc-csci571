@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/main.css">
+</head>
+<body>
+    <div id="search-area" class="w">
+        <div class="search-title">
+            <p class="title">Event Search</p>
+            <form class="search-form" method="get" action="#">
+                <p class="require">Keyword</p>
+                <input id="keyword" class="long toblue" type="text" required>
+                <div class="second-line">
+                    <div class="distance">
+                        <p>Distance(miles)</p>
+                        <input id="distance" class="short toblue" type="number" min="0" max="100" placeholder="10" value="10">
+                    </div>
+                    <div class="category">
+                        <p class="require">Category</p>
+                        <select id="category" class="short toblue" required>
+                            <option selected>Default</option>
+                            <option>Music</option>
+                            <option>Sports</option>
+                            <option value="Arts">Arts&Theatre</option>
+                            <option>Film</option>
+                            <option>Miscellaneous</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="location">
+                    <span class="require">Location</span>
+                    <input type="checkbox" id="autochecked">
+                    <label>Auto-Detection Location</label><br>
+                    <input id="location" type="text" class="long toblue" required>
+                </div>
+                <div class="buttons">
+                    <input class="search-button" type="submit" value="SEARCH">
+                    <input class="clear-button" type="reset" value="CLEAR">
+                </div>
+            </form>
+        </div>
+        
+    </div>
+
+    <div id="display-area" class="w">
+        <div class="display-table">
+            <div class="no-record">
+            </div>
+            <div class="event-display">
+                <table>
+                    <thead id="table-head">
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="detail-area" class="w">
+        <div class="detail-box">
+            <div class="detail-title">
+            </div>
+            <div class="detail-info">
+            </div>
+            <div id="seatmap">
+            </div>
+        </div>
+        <div class="show-venue">
+        </div>
+    </div>
+
+    <div id="venue-area" class="w">
+        <div class="venue-box">
+        </div>
+    </div>
+
+
+    <script src="../static/main.js"></script>
+</body>
+</html>
