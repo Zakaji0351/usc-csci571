@@ -1,0 +1,10 @@
+<div class="search-wrapper-container">
+    <app-search-form class="events-search" (onEventsData)="onDataReceived($event)" (formSubmitted)="onFormSubmitted($event)" (onClearEvents)="clearEventsData()">
+  
+    </app-search-form>
+    <app-events class="events-container" [events]="eventsData" [isSubmitted]="isFormSubmitted" [isLoading]="isLoading" [isCleared]="isCleared" >
+    
+    </app-events>
+</div>
+
+<!-- <app-detailstab></app-detailstab> -->

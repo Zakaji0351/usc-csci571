@@ -1,0 +1,123 @@
+<div id="search-area" class="container" style="margin-bottom: 50px;">
+    <div class="search-title bg-dark text-white rounded p-4 mt-5 mx-auto" style="width: 100%; max-width: 700px;">
+        <h1 class="text-center mb-4">Event Search</h1>
+        <hr class="w-75 mx-auto my-3 bg-white">
+        <form class="search-form" (ngSubmit)="onSubmit(form)" #form="ngForm">
+            <div class="form-group keyword-wrapper">
+                <label for="keyword" class="require">Keyword</label>
+                <input id="keyword" name="keyword" #keywordModel="ngModel" [(ngModel)]="formData.keyword" (input)="getKeywordSuggestions(formData.keyword)" class="form-control toblue" type="text" required>
+                <div *ngIf="form.submitted && keywordModel.errors?.['required']" class="error-message">
+                    Keyword is required.
+                </div>              
+                <div *ngIf="keywordSuggestions.length > 0" class="suggestions-dropdown">
+                    <ul>
+                        <li *ngFor="let suggestion of keywordSuggestions" (click)="onSuggestionClick(suggestion)">
+                            {{ suggestion }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="second-line row">
+                <div class="form-group distance col-md-6 mb-3">
+                    <label for="distance">Distance</label>
+                    <input id="distance" name="distance" [(ngModel)]="formData.distance" class="form-control toblue" type="number" min="0" max="100">
+                </div>
+                <div class="form-group category col-md-6">
+                    <label for="category" class="require">Category</label>
+                    <select id="category" name="category" #categoryModel="ngModel" [(ngModel)]="formData.category" class="form-control toblue" required>
+                        <option value="Default">Default</option>
+                        <option>Music</option>
+                        <option>Sports</option>
+                        <option value="Arts">Arts&Theatre</option>
+                        <option>Film</option>
+                        <option>Miscellaneous</option>
+                    </select>
+                    <div *ngIf="form.submitted && categoryModel.errors?.['required']" class="error-message">
+                        Category is required.
+                    </div>  
+                </div>
+            </div>
+            <div class="location row form-group">
+                <label for="location" class="require">Location</label>
+                <input id="location" name="location" #locationModel="ngModel" [(ngModel)]="formData.location" [disabled]="formData.autochecked" type="text" class="form-control toblue" required>
+                <div *ngIf="form.submitted && locationModel.errors?.['required']" class="error-message">
+                    Location is required.
+                </div>
+                <div class="form-check mt-2">
+                    <input type="checkbox" id="autochecked" name="autochecked" [(ngModel)]="formData.autochecked" (change)="onAutoCheckedChange()" class="form-check-input">
+                    <label for="autochecked" class="form-check-label">Auto-Detection Location</label>
+                </div>
+            </div>
+            <div class="buttons row mt-3 d-flex justify-content-center">
+                <div class="col-5 d-flex justify-content-center">
+                    <input class="search-button btn btn w-100 btn-custom" type="submit" value="SUBMIT">
+                </div>
+                <div class="col-5 d-flex justify-content-center">
+                    <input class="clear-button btn btn w-100 btn-custom" (click)="onClear(form)" value="CLEAR">
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <div id="search-area" class="w">
+    <div class="search-title">
+        <p class="title">Event Search</p>
+        <form class="search-form" (ngSubmit)="onSubmit(form)" #form="ngForm">
+            <p class="require">Keyword</p>
+            <input id="keyword" name="keyword" #keywordModel="ngModel" [(ngModel)]="formData.keyword" (input)="getKeywordSuggestions(formData.keyword)" class="long toblue" type="text" required>
+            <div *ngIf="form.submitted && keywordModel.errors?.['required']" class="error-message">
+                Keyword is required.
+            </div>              
+            <div *ngIf="keywordSuggestions.length > 0" class="suggestions-dropdown">
+                <ul>
+                    <li *ngFor="let suggestion of keywordSuggestions" (click)="onSuggestionClick(suggestion)">
+                        {{ suggestion }}
+                    </li>
+                </ul>
+            </div>
+            <div class="second-line">
+                <div class="distance">
+                    <p>Distance(miles)</p>
+                    <input id="distance" name="distance" [(ngModel)]="formData.distance" class="short toblue" type="number" min="0" max="100" value="10">
+                </div>
+                <div class="category">
+                    <p class="require">Category</p>
+                    <select id="category" name="category" #categoryModel="ngModel" [(ngModel)]="formData.category" class="short toblue" required value="Default">
+                        <option selected>Default</option>
+                        <option>Music</option>
+                        <option>Sports</option>
+                        <option value="Arts">Arts&Theatre</option>
+                        <option>Film</option>
+                        <option>Miscellaneous</option>
+                    </select>
+                    <div *ngIf="form.submitted && categoryModel.errors?.['required']" class="error-message">
+                        Category is required.
+                    </div>                      
+                </div>
+            </div>
+            <div class="location">
+                <p class="require">Location</p>
+                <input id="location" name="location" #locationModel="ngModel" [(ngModel)]="formData.location" [disabled]="formData.autochecked" type="text" class="long toblue" required>
+                <div *ngIf="form.submitted && locationModel.errors?.['required']" class="error-message">
+                    Location is required.
+                </div>
+                  <br>
+                <input type="checkbox" id="autochecked" name="autochecked" [(ngModel)]="formData.autochecked" (change)="onAutoCheckedChange()">
+                <label>Auto-Detection Location</label>
+            </div>
+            <div class="buttons">
+                <input class="search-button" type="submit" value="SUBMIT">
+                <input class="clear-button" type="reset" value="CLEAR">
+            </div>
+        </form>
+    </div>
+</div> -->

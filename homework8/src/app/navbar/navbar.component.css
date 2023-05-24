@@ -1,0 +1,21 @@
+.custom-navbar{
+    background-color: transparent !important;
+}
+.custom-navbar .navbar-nav .nav-link {
+    color: #fff;
+}
+.favorite-link .search-link{
+    border: 2px white solid;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem; 
+    margin: 0 0.25rem;;
+}
+.custom-ul{
+    margin-right: 20px;
+}
+.active-link{
+    border: 2px white solid;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    margin: 0 0.25rem;
+}

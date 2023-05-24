@@ -1,0 +1,9 @@
+.search-wrapper-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.events-search
+.events-container{
+    width: 100%;
+}

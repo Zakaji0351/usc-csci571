@@ -1,0 +1,98 @@
+<app-detailstab 
+    *ngIf="!isCleared && selectedEventDetails" 
+    [details]="selectedEventDetails" 
+    [venue]="selectedVenue"
+    [artists]="selectedArtists"
+    (goBack)="onDetailsBack()">
+
+</app-detailstab>
+
+<div id="display-area" *ngIf="!isCleared && !selectedEventDetails && isSubmitted && isLoading === false" class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div *ngIf="events && events.length > 0; else norecord" class="event-display">
+                <table class="table table-responsive table-borderless text-center">
+                    <thead id="table-head" class="text-white">
+                        <tr>
+                            <th scope="col">Date/Time</th>
+                            <th scope="col">Icon</th>
+                            <th scope="col">Event</th>
+                            <th scope="col">Genre</th>
+                            <th scope="col">Venue</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <tr class="row1" *ngFor="let event of events; index as i" 
+                        [class.even-row]="i % 2 === 0" [class.odd-row]="i % 2 === 1" (click)="onRowClick(event)">
+                            <td class="content-unit date-unit">
+                                <p>{{ event.date }}</p>
+                                <p>{{ event.time }}</p>
+                            </td>
+                            <td class="content-unit icon-unit">
+                                <img src="{{ event.icon }}" class="img-fluid">
+                            </td>
+                            <td class="content-unit name-unit">
+                                {{ event.name }}
+                            </td>
+                            <td class="content-unit genre-unit">
+                                {{ event.genre }}
+                            </td> 
+                            <td class="content-unit venue-unit">
+                                {{ event.venue }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ng-template #norecord id="no-record">
+                <span class="no-display d-block mx-auto text-center text-danger">No Results Available</span>
+            </ng-template>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div id="display-area" *ngIf="!selectedEventDetails && isSubmitted && isLoading === false"class="w">
+    <div class="display-table">
+        <div>
+            <div *ngIf="events && events.length > 0; else norecord" class="event-display">
+                <table>
+                    <thead id="table-head">
+                        <tr>
+                            <th>Date/Time</th>
+                            <th>Icon</th>
+                            <th>Event</th>
+                            <th>Genre</th>
+                            <th>Venue</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <tr class="row1" *ngFor="let event of events; index as i" 
+                        [class.even-row]="i % 2 === 0" [class.odd-row]="i % 2 === 1" (click)="onRowClick(event)">
+                            <td class="content-unit date-unit">
+                                <p>{{ event.date }}</p>
+                                <p>{{ event.time }}</p>
+                            </td>
+                            <td class="content-unit icon-unit">
+                                <img src="{{ event.icon }}">
+                            </td>
+                            <td class="content-unit name-unit">
+                                {{ event.name }}
+                            </td>
+                            <td class="content-unit genre-unit">
+                                {{ event.genre }}
+                            </td> 
+                            <td class="content-unit venue-unit">
+                                {{ event.venue }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ng-template #norecord id="no-record">
+                <span class="no-display">No Results Available</span>
+            </ng-template>
+        </div>
+    </div>
+</div> -->

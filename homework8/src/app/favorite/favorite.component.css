@@ -1,0 +1,68 @@
+.no-display{
+    margin: 0 auto;
+    display: block;
+    max-width: 800px;
+    width: 100%;
+    color: red;
+    background-color: #fff;
+    height: auto;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 80px;
+}
+.table {
+    border-collapse: collapse;
+    /* margin: 0 auto;
+    text-align: center; */
+    max-width: 800px;
+    width: 100%;
+    margin-top: 20px;
+    border: none;
+}
+  
+
+.even-row{
+    background-color: #f2f2f2;
+    color: black;
+    /* width: 800px; */
+}
+.odd-row{
+    background-color: #fff;
+    color: black;
+    /* width: 800px; */
+} 
+
+
+.table-bordered td,
+.table-bordered th,
+.table-bordered tr {
+    border: none;
+}
+
+/* .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fff;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #f2f2f2; /* Light gray 
+} */
+thead tr th:first-child{
+    border-top-left-radius: 20px;
+}
+thead tr th:last-child{
+    border-top-right-radius: 20px;
+}
+tbody tr:last-child td:first-child{
+    border-bottom-left-radius: 20px;
+}
+tbody tr:last-child td:last-child{
+    border-bottom-right-radius: 20px;
+}
+.trash-button{
+    background-color: transparent;
+    border: none;
+    color: black;
+}
+.trash-button:hover{
+    cursor: pointer;
+}
